@@ -33,7 +33,7 @@ public class PoemController {
     }
 
     @RequestMapping("/poem1/{id}")
-    public void greeting1(@PathVariable("id") int id, HttpServletResponse resp){
+    public void testSelectById(@PathVariable("id") int id, HttpServletResponse resp){
         PoemDao poemDao = new PoemDaoImpl();
         Poem poem = null;
         try {
