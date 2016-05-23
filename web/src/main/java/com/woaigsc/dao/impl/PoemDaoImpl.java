@@ -36,7 +36,7 @@ public class PoemDaoImpl implements PoemDao{
         ResultSet rs = null;
         Poem poem  = null ;
 
-        String sql = "select dynasty,category,title,author,content,"+
+        String sql = "select id,dynasty,category,title,author,content,"+
                 "href from poemtable where id=?" ;
         try{
             conn = DBHelper.getConnection();
@@ -45,12 +45,13 @@ public class PoemDaoImpl implements PoemDao{
             rs = ps.executeQuery() ;
             if(rs.next()){
                 poem = new Poem();
-                poem.setDynasty(rs.getString(1));
-                poem.setCategory(rs.getString(2));
-                poem.setTitle(rs.getString(3));
-                poem.setAuthor(rs.getString(4));
-                poem.setContent(rs.getString(5));
-                poem.setHref(rs.getString(6));
+                poem.setId(rs.getInt(1));
+                poem.setDynasty(rs.getString(2));
+                poem.setCategory(rs.getString(3));
+                poem.setTitle(rs.getString(4));
+                poem.setAuthor(rs.getString(5));
+                poem.setContent(rs.getString(6));
+                poem.setHref(rs.getString(7));
             }
         }catch (SQLException e){
             e.printStackTrace();
